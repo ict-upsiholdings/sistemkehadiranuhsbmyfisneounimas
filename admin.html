@@ -344,7 +344,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Admin Portal Sistem Kehadiran MyFIS Neo@USAS</h1>
+            <h1>Admin Portal Sistem Kehadiran MyFIS Neo@UNIMAS</h1>
             <p class="subtitle">Dicipta oleh UPSI Holdings Sdn. Bhd.</p>
             <button class="refresh-btn" style="float:right;" onclick="logout()">Log Keluar</button>
         </div>
@@ -387,8 +387,8 @@
                         <div class="stat-label">UPSI</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value" id="usasCount">0</div>
-                        <div class="stat-label">USAS</div>
+                        <div class="stat-value" id="unimasCount">0</div>
+                        <div class="stat-label">UNIMAS</div>
                     </div>
                 </div>
 
@@ -431,9 +431,9 @@
         let allAttendanceData = {};
         let currentFilteredData = [];
         
-        const SESSION_API = 'https://script.google.com/macros/s/AKfycbyfYm3aWbPcMaM98d7s_AroqtxhOvAlE7LImSvlBdPjkayJVl6d_yYj-Z8azH_eDppZ/exec';
-        const BASE_URL = 'https://ict-upsiholdings.github.io/sistemkehadiranuhsbmyfisneousas/index.html';
-        const API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyYd62LwlpFac-Ko5Y_4JIdLIUeoDvSSlLdcPq-fN0yQUZV5bZy4ijkCXv7na9MKxKO/exec';
+        const SESSION_API = 'https://script.google.com/macros/s/AKfycbx85dfB744iNWbtwVYoLD2H_LAcc6F0hDayQeu5ydbZ_gqniNAPa0Kv4f4XMvR9yDRu/exec';
+        const BASE_URL = 'https://ict-upsiholdings.github.io/sistemkehadiranuhsbmyfisneounimas/index.html';
+        const API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxNiENARZIEwIz8BPUUjkFycGE-6Spbec6Vu8rtJjmz13lE6dNRgKTTVRYimjAV4LpIQQ/exec';
 
         async function loadSessionData() {
             try {
@@ -687,8 +687,8 @@
             document.getElementById('totalAttendees').textContent = data.length;
             document.getElementById('upsiCount').textContent = 
                 data.filter(r => r['Trainer/Trainee'] === 'UPSI').length;
-            document.getElementById('usasCount').textContent = 
-                data.filter(r => r['Trainer/Trainee'] === 'USAS').length;
+            document.getElementById('unimasCount').textContent = 
+                data.filter(r => r['Trainer/Trainee'] === 'UNIMAS').length;
         }
 
         function filterAttendance() {
@@ -770,7 +770,7 @@ const headerHeight = await addHeaderImage(doc, headerImage, 14, 10, 180);
 
     doc.setFontSize(11);
     doc.setFont(undefined, 'normal');
-    doc.text('Kehadiran Sesi Latihan (ToT) MyFIS Neo@USAS', 14, textStartY + 8);
+    doc.text('Kehadiran Sesi User Acceptance Testing (UAT) & Latihan (ToT) MyFIS Neo@UNIMAS', 14, textStartY + 8);
 
     // Tarikh semasa
     const currentDate = new Date().toLocaleString('ms-MY', {
@@ -790,7 +790,8 @@ const headerHeight = await addHeaderImage(doc, headerImage, 14, 10, 180);
 
     if (sesiFilter) {
         // Extract nombor sesi dari "Sesi 1" → 1
-        const sesiNumber = parseInt(sesiFilter.replace('Sesi ', ''));
+        // const sesiNumber = parseInt(sesiFilter.replace('Sesi ', ''));
+        const sesiNumber = parseInt(sesiFilter.replace('Hari ', ''));
         
         // sessionData adalah array, index bermula dari 0
         // Jadi Sesi 1 = index 0, Sesi 2 = index 1, dst
@@ -804,7 +805,8 @@ const headerHeight = await addHeaderImage(doc, headerImage, 14, 10, 180);
         
         if (sesiData) {
             if (sesiData.modul) {
-                doc.text(`Modul: ${sesiData.modul}`, 14, yPos);
+                // doc.text(`Modul: ${sesiData.modul}`, 14, yPos);
+                doc.text(`Sesi: ${sesiData.modul}`, 14, yPos);
                 yPos += 5;
             }
             if (sesiData.tarikhMasa) {
@@ -829,7 +831,7 @@ const headerHeight = await addHeaderImage(doc, headerImage, 14, 10, 180);
     yPos += 5;
     doc.text(`UPSI: ${currentFilteredData.filter(r => r['Trainer/Trainee'] === 'UPSI').length}`, 14, yPos);
     yPos += 5;
-    doc.text(`USAS: ${currentFilteredData.filter(r => r['Trainer/Trainee'] === 'USAS').length}`, 14, yPos);
+    doc.text(`UNIMAS: ${currentFilteredData.filter(r => r['Trainer/Trainee'] === 'UNIMAS').length}`, 14, yPos);
 
     // === 📑 Sediakan jadual ===
 

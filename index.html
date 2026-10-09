@@ -486,7 +486,7 @@
         <div class="logo-container">
             <img src="img/UPSI-&-100-Tahun.png" alt="UPSI">
             <img src="img/UHSB.png" alt="UHSB">
-            <img src="img/USAS.png" alt="USAS">
+            <img src="img/UNIMAS.png" alt="UNIMAS">
         </div>
 
         <div class="header-section">
@@ -503,11 +503,11 @@
         <div id="sessionInfoBox" class="session-info hidden">
             <h3>Maklumat Sesi</h3>
             <div class="session-detail">
-                <strong>Sesi:</strong>
+                <strong>Hari:</strong>
                 <span id="displaySesi">-</span>
             </div>
             <div class="session-detail">
-                <strong>Modul:</strong>
+                <strong>Sesi:</strong>
                 <span id="displayModul">-</span>
             </div>
             <div class="session-detail">
@@ -533,7 +533,7 @@
                 <select id="trainer" name="trainer" required>
                     <option value="">Pilih kategori...</option>
                     <option value="UPSI">UPSI</option>
-                    <option value="USAS">USAS</option>
+                    <option value="UNIMAS">UNIMAS</option>
                 </select>
             </div>
 
@@ -550,10 +550,10 @@
     </div>
 
     <script>
-        const SESSION_API   = 'https://script.google.com/macros/s/AKfycbyfYm3aWbPcMaM98d7s_AroqtxhOvAlE7LImSvlBdPjkayJVl6d_yYj-Z8azH_eDppZ/exec';
-        const NAMES_API     = 'https://script.google.com/macros/s/AKfycbxy1DOY_di72W14rK-7rjnNE22Qb5YnbylQOkb8q7mMZ36wiT3kVAF56ABeaIgla-VYFg/exec';
-        const ENDPOINT      = 'https://script.google.com/macros/s/AKfycbyYd62LwlpFac-Ko5Y_4JIdLIUeoDvSSlLdcPq-fN0yQUZV5bZy4ijkCXv7na9MKxKO/exec';
-        const ENDPOINT_POST = 'https://script.google.com/macros/s/AKfycbyiE8PzJl9w4s_HOhm7AXVuoXTVSw2NjuCfjXulKyeKJHvFwBigo8FYOa5jchatxWWm/exec';
+        const SESSION_API   = 'https://script.google.com/macros/s/AKfycbx85dfB744iNWbtwVYoLD2H_LAcc6F0hDayQeu5ydbZ_gqniNAPa0Kv4f4XMvR9yDRu/exec';
+        const NAMES_API     = 'https://script.google.com/macros/s/AKfycbzLPec9BLFQ7sBvX6hPGpQbfMrTMtxRwcQtG48UiBVkCDCqlaYIztoCf2AyMsn-0lE_0w/exec';
+        const ENDPOINT      = 'https://script.google.com/macros/s/AKfycbxNiENARZIEwIz8BPUUjkFycGE-6Spbec6Vu8rtJjmz13lE6dNRgKTTVRYimjAV4LpIQQ/exec';
+        const ENDPOINT_POST = 'https://script.google.com/macros/s/AKfycbzlezv6TlY0bi_kTW4owSVwqn1ylKNRnU08sgtgMkkF-fCbWRgAZmQrrz6dy2qM5rNu/exec';
 
         let sessionData = {};
         let namesData = [];
